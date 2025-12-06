@@ -1,0 +1,16 @@
+<h1>TODO List</h1>
+<a href="{% url 'todo_create' %}">Create New</a>
+
+<ul>
+    {% for todo in todos %}
+        <li>
+            <a href="{% url 'todo_toggle' todo.pk %}">
+                {% if todo.resolved %}✔{% else %}❌{% endif %}
+            </a>
+            {{ todo.title }} — Due: {{ todo.due_date }}
+
+            <a href="{% url 'todo_edit' todo.pk %}">Edit</a>
+            <a href="{% url 'todo_delete' todo.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>
