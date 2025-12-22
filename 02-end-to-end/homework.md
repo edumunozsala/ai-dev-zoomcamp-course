@@ -54,7 +54,6 @@ based on the OpenAPI specs, create fastapi backend (backend folder)for now use a
 follow the guidelines in AGENTS.md. And implement a verify_api.py script that tests the running server to ensure all endpoints work correctly.
 ```
 
-
 ## Question 2: Integration Tests
 
 Maybe at this point your application will already function. Maybe not. But it's always a good idea to cover it with tests.
@@ -65,19 +64,18 @@ Ask AI to write integration tests that check that the interaction between client
 
 Also it's a good idea to ask it to start creating a `README.md` file with all the commands for running and testing your application.
 
-What's the terminal command you use for executing tests?
-
 ```text
 We now have backend. Lets connect it to frontend. Prompt:
 
 Make frontend use backend. use OpenAPI specs for guidance follow the guidelines in AGENTS.md.We also need a way to run them both at the same tile
 ```
 
+What's the terminal command you use for executing tests?
+**npm run test:integration**
+
 ## Question 3: Running Both Client and Server
 
 Now let's make it possible to run both client and server at the same time. Use `concurrently` for that.
-
-What's the command you have in `package.json` for `npm dev` for running both?
 
 ```text
 How can I run both frontend and backend at the same time? Let's use concurrently instead of our own script
@@ -88,17 +86,24 @@ How can I run both frontend and backend at the same time? Let's use concurrently
     "test": "echo \"Error: no test specified\" && exit 1"
 ```
 
+What's the command you have in `package.json` for `npm dev` for running both?
+
+```text
+ "dev": "concurrently \"npm run server\" \"npm run client\" --names \"SERVER,CLIENT\" --prefix-colors \"blue,green\" --kill-others",
+```
+
 ## Question 4: Syntax Highlighting
 
 Let's now add support for syntax highlighting for JavaScript and Python.
-
-Which library did AI use for it?
 
 ```text
 Now, add support for syntax highlighting for JavaScript and Python on the frontend app.And follow the guidelines in AGENTS.md
 
 I have created a plan to add syntax highlighting using prismjs and react-simple-code-editor. Please review the implementation plan.
 ```
+
+Which library did AI use for it?
+**Prism.js**
 
 ## Question 5: Code Execution
 
@@ -107,100 +112,34 @@ Now let's add code execution.
 For security reasons, we don't want to execute code directly on the server. Instead, let's use WASM to execute the code only in the browser.
 
 Which library did AI use for compiling Python to WASM?
-
+**py2wasm**
 
 ## Question 6: Containerization
 
 Now let's containerize our application. Ask AI to help you create a Dockerfile for the application. Put both backend and frontend in one container.
 
+```text
+Now let's containerize our application. Create a Dockerfile for the application. Put both backend and frontend in one container and also use postgres as the database for our backend server.  we can serve frontend with nginx or whatever you recommend. And follow the guidelines in AGENTS.md.
+```
+
 What's the base image you used for your Dockerfile?
+**node:20-alpine**
 
 
 ## Question 7: Deployment
 
 Now let's deploy it. Choose a service to deploy your application.
 
+```text
+For deployment we need to put together backend and frontend in one container. I want to deploy it to the cloud now. what are the options
+```
 Which service did you use for deployment?
-
+**Render**
 
 ## Homework URL
 
 Commit your code to GitHub. You can create a repository for this course. Within the repository, create a folder, e.g. "02-coding-interview", where you put the code.
 
-Use the link to this folder in the homework submission form.
-
-Don't forget to commit your code at every step. You can create an `AGENTS.md` file with the instructions for AI to help you with git commands.
-
-
 ## Tip
 
 You can copy-paste the homework description into the AI system of your choice. But make sure you understand (and follow) all the steps in the response.
-
-
-## Submission
-
-Submit your homework here: https://courses.datatalks.club/ai-dev-tools-2025/homework/hw2
-
-
-## Learning in Public
-
-We encourage everyone to share what they learned. 
-
-Don't worry about being perfect. Everyone starts somewhere, and people love following genuine learning journeys!
-
-### Recording a Demo Video
-
-Consider recording a short demo video of your application in action! This makes your post much more engaging and helps others see what you've built.
-
-You can use:
-- Screen recording tools like OBS Studio, QuickTime, or Windows Game Bar
-- Loom for quick and shareable recording
-- Snapping Tool on Windowns
-  
-Keep it short (30-90 seconds) and show:
-- Creating a coding session link
-- Multiple users editing code simultaneously
-- Real-time updates across browsers
-- Code execution in action
-
-Upload your video to LinkedIn, Twitter/X, or YouTube and share the link!
-
-### Example post for LinkedIn:
-
-```
-🚀 Week 2 of AI Dev Tools Zoomcamp by @DataTalksClub complete!
-
-Just built a real-time collaborative coding interview platform using AI assistants!
-
-Today I learned how to:
-
-- ✅ Build full-stack applications with AI (frontend + backend)
-- ✅ Implement real-time collaboration with WebSockets
-- ✅ Add syntax highlighting for multiple languages
-- ✅ Execute code safely in the browser with WASM
-- ✅ Containerize and deploy the application
-
-Here's my repo: <LINK>
-Demo video: <VIDEO_LINK>
-
-Following along with this amazing course - who else is building with AI?
-
-You can sign up here: https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/
-```
-
-### Example post for Twitter/X:
-
-
-```
-🤖 Built a collaborative coding platform with AI!
-
-🔗 Shareable links
-⚡ Real-time collaboration
-🎨 Syntax highlighting
-🚀 Browser code execution
-
-My repo: <LINK>
-Demo: <VIDEO_LINK>
-
-Join me: https://github.com/DataTalksClub/ai-dev-tools-zoomcamp/
-```
