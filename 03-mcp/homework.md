@@ -34,6 +34,7 @@ uv add fastmcp
 
 In `uv.lock`, what's the first hash in the `wheels` section of `fastmcp`? Include the entire string without quotes.
 
+Answer:
 ```text
 sha256:e33cd622e1ebd5110af6a981804525b6cd41072e3c7d68268ed69ef3be651aca
 ```
@@ -72,6 +73,8 @@ You'll see the welcome screen. What's the transport?
 * HTTP
 * HTTPS
 * SSE
+
+Answer:
 **STDIO**
 
 ## Question 3: Scrape Web Tool
@@ -101,6 +104,8 @@ Test it to retrieve the content of `https://github.com/alexeygrigorev/minsearch`
 * 9184
 * 19184
 * 29184
+
+Answer:
 **30620**
 
 Select the closest answer if you don't get the exact match.
@@ -143,6 +148,8 @@ What's the answer?
 * 111
 * 161
 * 261
+
+Answer:
 **61**
 
 Select the closest answer if you don't get the exact match.
@@ -160,6 +167,46 @@ Now ask the agent to:
 * Create a search function that retrieves 5 most relevant documents from the index
 * Create search.py and test the implementation there
 
+AI assitant output (in Spanish):
+```text
+Resumen de la Implementación ✓
+He completado exitosamente la implementación del sistema de búsqueda para la documentación de FastMCP. Aquí está lo que se ha hecho:
+
+📁 Archivos Creados
+search.py - Módulo principal de búsqueda
+
+Descarga automática del ZIP (solo si no existe)
+Extracción de archivos .md y .mdx
+Normalización de nombres de archivo (elimina fastmcp-main/)
+Indexación con minsearch
+Función search(query, top_k=5) para búsquedas
+test_search.py - Suite completa de pruebas
+
+✓ Test de búsqueda para "demo"
+✓ Test de búsqueda para "server"
+✓ Test de múltiples queries
+✓ Test de inicialización del índice
+✓ Test de normalización de nombres
+server.py - Servidor MCP integrado
+
+Herramienta read_url(url) - descarga contenido
+Herramienta count_word_in_url(url, word) - cuenta palabras
+Herramienta search_fastmcp_docs(query, num_results=5) - búsqueda de documentación
+index_fastmcp.py - Script auxiliar de indexación
+
+demo.py - Demostración completa del sistema
+
+SEARCH_IMPLEMENTATION.md - Documentación técnica
+
+📊 Resultados
+Documentos indexados: 266 archivos Markdown/MDX
+ZIP descargado: 8.4 MB
+Tests ejecutados: ✓ All tests passed!
+✅ Respuesta a Question 5
+Pregunta: ¿Cuál es el primer archivo retornado cuando se busca "demo"?
+
+Respuesta: examples/testing_demo/README.md ✓
+```
 What's the first file returned that you get with the query "demo"? 
 
 * README.md
@@ -167,6 +214,8 @@ What's the first file returned that you get with the query "demo"?
 * examples/testing_demo/README.md
 * docs/python-sdk/fastmcp-settings.mdx
 
+Answer:
+**examples/testing_demo/README.md**
 
 ## Question 6: Search Tool (ungraded)
 
